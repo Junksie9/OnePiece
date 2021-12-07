@@ -1,19 +1,20 @@
-﻿@{
+﻿
+@{
     Layout = "MasterpageAdmin";
 }
 
+<form method="post">
+    <a href="~/Admin/Arcos/Agregar">Nuevo Arco</a>
 
-<a href="~/Admin/Arco/Agregar"></a>
-<h1>Nuevo Arco</h1>
 
-@foreach (var item in Model)
-{
-    <div>
-        <h1>@item.NombreArco</h1>
-    </div>
-
-    <div>
-        <a href="~/Admin/Arco/Editar/@item.IdArco"></a>
-        <a href="~/Admin/Arco/Eliminar/@item.IdArco"></a>
-    </div>
-}
+    @foreach (var item in Model)
+    {
+        <div>
+            <h1>@item.NombreArco</h1>
+            <div>
+                <a href="~/Admin/Arcos/Editar/@item.IdArco"></a>
+                <a href="~/Admin/Arcos/Eliminar/@item.IdArco"></a>
+            </div>
+        </div>
+    }
+</form>

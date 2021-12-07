@@ -25,7 +25,31 @@ namespace OnePiece.Areas.Admin.Controllers
 
         public IActionResult Agregar()
         {
-            return View();
+            return View(new Arco());
+        }
+
+        [HttpPost]
+        public IActionResult Agregar(Arco a)
+        {
+            if (string.IsNullOrWhiteSpace(a.NombreArco))
+            {
+                ModelState.AddModelError("","Agregue Nombre del arco");
+            }
+            else if (string.IsNullOrWhiteSpace(a.Descripcion))
+            {
+                ModelState.AddModelError("", "Agregue una Descripcion");
+            }
+            else if (Context.Arcos.Any(x=>x.NombreArco==a.NombreArco))
+            {
+                ModelState.AddModelError("", "Ya existe un arco con ese nombre");
+            }
+            else
+            {
+                Context.Add(a);
+                Context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(a);
         }
 
         public IActionResult Editar()

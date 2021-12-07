@@ -1,0 +1,19 @@
+﻿@model OnePiece.Models.Arco
+@{
+    Layout = "MasterpageAdmin";
+}
+
+<form method="post" action="~/Admin/Arcos/Agregar">
+    <h1>Agregar Arco</h1>
+    <input type="text" name="NombreArco" required="required" value="@Model.NombreArco"/>
+    <h1>Agregar Descripcion</h1>
+    <input type="text" name="Descripcion" required="required" />
+    <div>
+        <p id="error">@Html.ValidationSummary()</p>
+        <input type="submit" value="Agregar" />
+        <a href="~/Admin/Arcos/Index">
+            <input type="button" value="cancelar" />
+        </a>
+
+    </div>
+</form>
