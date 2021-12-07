@@ -1,7 +1,24 @@
-﻿
+﻿@model OnePiece.Models.Arco
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "MasterpageAdmin";
 }
 
-<h1>Editar</h1>
+<form method="post" action="~/Admin/Arcos/Editar">
+    <input type="hidden" asp-for="IdArco" />
+    <h1>Editar Arco</h1>
+    <input type="text" asp-for="NombreArco" required="required" value="@Model.NombreArco" />
+    <h1>Editar Descripcion</h1>
+    <input type="text" asp-for="Descripcion" required="required" />
+    <h1>Editar Numero de arco</h1>
+    <input type="text" asp-for="NumArco" required="required" />
+    <div>
+        <p id="error">@Html.ValidationSummary()</p>
+        <input type="submit" value="Guardar" />
+        <a href="~/Admin/Arcos/Index">
+            <input type="button" value="cancelar" />
+        </a>
+
+    </div>
+</form>
 
