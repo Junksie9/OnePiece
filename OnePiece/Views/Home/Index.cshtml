@@ -3,12 +3,13 @@
     Layout = "Masterpage";
 }
 
+
 <h1>Lista de episodios</h1>
 @foreach (var item in Model)
 {
     <li>
         <a href="~/Home/InfoCap">
-            <img src="~/loffy.png" style="height:200px;width:400px;" />
+            <img src="~/images/luffy.jpg" style="height:200px;width:400px;" />
             <h1>@item.NombreCapitulo</h1>
         </a>
     </li>

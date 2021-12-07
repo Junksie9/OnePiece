@@ -1,4 +1,5 @@
 ﻿@model OnePiece.Models.Arco
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
 @{
     Layout = "Masterpage";
 }
@@ -11,7 +12,14 @@
     <li>
         <a href="~/@Model.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
             <h1>One Piece - @item.NombreCapitulo</h1>
-            <img src="~/loffy.png" style="height:200px;width:400px;" />
+            @if (System.IO.File.Exists($"{env.WebRootPath}/images/{Model.IdArco}.jpg"))
+            {
+                <img src="~/images/@(Model.IdArco).jpg" style="height:200px;width:400px;" />
+            }
+            else
+            {
+                <img src="~/images/nophoto.jpg" style="height:200px;width:400px;" />
+            }
             <p>@item.Descripcion</p>
         </a>
     </li>

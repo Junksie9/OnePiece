@@ -1,11 +1,19 @@
 ﻿@model OnePiece.Models.Capitulo
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
 @{
     Layout = "Masterpage";
 }
 
 <h1>InfoCap</h1>
 <h1>One piece - @Model.NombreCapitulo</h1>
-<img src="~/loffy.png" style="height:200px;width:400px;" />
+@if (System.IO.File.Exists($"{env.WebRootPath}/images/{Model.IdCapitulo}.jpg"))
+{
+    <img src="~/images/@(Model.IdCapitulo).jpg" style="height:200px;width:400px;" />
+}
+else
+{
+<img src="~/images/nophoto.jpg" style="height:200px;width:400px;" />
+}
 <p>@Model.Descripcion</p>
 
 <a href="javascript:window:.history.back()">Regresar</a>
