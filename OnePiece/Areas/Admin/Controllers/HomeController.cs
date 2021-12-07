@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace OnePiece.Areas.Admin.Controllers
 {
-    
+    [Area("Admin")]
     public class HomeController : Controller
     {
-        [Area("Admin")]
+
         [Route("admin")]
         [Route("admin/Home")]
         [Route("admin/Index")]
