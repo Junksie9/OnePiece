@@ -1,0 +1,30 @@
+﻿@inject OnePiece.Services.ArcoServices arcos
+
+<!DOCTYPE html>
+<html>
+<head>
+    @*<link href="~/css/estilos.css" rel="stylesheet" />*@
+    <meta charset="UTF-8" />
+    <title>Mundo One Piece</title>
+</head>
+<body>
+    <header>
+        <tite>World One Piece</tite>
+        <nav>
+            <a href="~/Home">Principal</a>
+            @foreach (var item in arcos.Arcos)
+            {
+                <a href="~/@item.NombreArco.Replace(" ","-" )">@item.NombreArco</a>
+            }
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        Mundo One Piece - Proyecto de Programación Web
+        Jesus David Flores Hernandez
+        Jacob Asael Barrera Mata
+    </footer>
+</body>
+</html>
