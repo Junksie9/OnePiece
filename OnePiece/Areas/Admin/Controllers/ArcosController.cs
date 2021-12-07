@@ -16,12 +16,12 @@ namespace OnePiece.Areas.Admin.Controllers
         {
             Context = context;
         }
-        public IActionResult Index()
+    
+        public IActionResult IndexArcos()
         {
             var arco = Context.Arcos.OrderBy(x => x.NombreArco);
             return View(arco);
         }
-
 
         public IActionResult Agregar()
         {
@@ -47,7 +47,7 @@ namespace OnePiece.Areas.Admin.Controllers
             {
                 Context.Add(a);
                 Context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexArcos");
             }
             return View(a);
         }
@@ -57,7 +57,7 @@ namespace OnePiece.Areas.Admin.Controllers
             var arco = Context.Arcos.FirstOrDefault(x => x.IdArco == id);
             if (arco==null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexArcos");
             }
             return View(arco);
         }
@@ -93,7 +93,7 @@ namespace OnePiece.Areas.Admin.Controllers
                     arc.Descripcion = a.Descripcion;
                     arc.NumArco = a.NumArco;
                     Context.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("IndexArcos");
                 }
             }
             return View(a);
@@ -104,7 +104,7 @@ namespace OnePiece.Areas.Admin.Controllers
             var arc = Context.Arcos.FirstOrDefault(x => x.IdArco == id);
             if (arc==null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexArcos");
             }
             return View(arc);
         }
@@ -114,7 +114,7 @@ namespace OnePiece.Areas.Admin.Controllers
             var arc = Context.Arcos.FirstOrDefault(x => x.IdArco == a.IdArco);
             if (arc == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexArcos");
             }
             else
             {
@@ -124,7 +124,7 @@ namespace OnePiece.Areas.Admin.Controllers
                 }
                 Context.Remove(arc);
                 Context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexArcos");
             }
             return View(a);
         }

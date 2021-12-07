@@ -1,0 +1,45 @@
+﻿@model OnePiece.Areas.Admin.Models.CapitulosViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "MasterpageAdmin";
+}
+
+<h1>Administrar Capitulos</h1>
+
+
+<section>
+    <form method="post" action="~/Admin/Capitulos/IndexCapitulos">
+        <select name="idArco" onchange="this.form.submit()">
+            @foreach (var a in Model.Arcos)
+            {
+                <option selected="selected" value="@a.IdArco">@a.NombreArco</option>
+            }
+        </select>
+    </form>
+
+    @foreach (var item in Model.Capitulos)
+    {
+        <div>
+            <h1>@item.NombreCapitulo</h1>
+            <p>@item.NumCap</p>
+            <p title="@(item.Descripcion)">
+                Descripcion:
+                @if (item.Descripcion.Length > 50)
+                {
+                    @item.Descripcion.Substring(0, 50)
+                }
+                else
+                {
+                    @item.Descripcion
+                }
+            </p>
+            <div>
+                <img src="~/images/nophoto.jpg" style="height:200px;width:400px;" />
+            </div>
+            <div>
+                <a href="~/Admin/Capitulos/Editar/@item.IdCapitulo">Editar</a>
+                <a href="~/Admin/Capitulos/Elimar/@item.IdCapitulo">Eliminar</a>
+            </div>
+        </div>
+    }
+</section>
