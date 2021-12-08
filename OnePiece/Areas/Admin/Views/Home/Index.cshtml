@@ -3,5 +3,5 @@
     Layout = "MasterpageAdmin";
 }
 
-<h1>Bienvenido Administrador </h1>
+<h1>Bienvenido @User.Identity.Name <small>id:@User.Claims.FirstOrDefault(x=>x.Type=="Id").Value</small> </h1>
 

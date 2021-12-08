@@ -9,10 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnePiece.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CapitulosController : Controller
     {
         public onepieceContext Context { get; }

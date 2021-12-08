@@ -19,13 +19,14 @@ namespace OnePiece.Models
 
         public virtual DbSet<Arcos> Arcos { get; set; }
         public virtual DbSet<Capitulos> Capitulos { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-               
+                
             }
         }
 
@@ -71,6 +72,29 @@ namespace OnePiece.Models
                     .HasForeignKey(d => d.IdArco)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("capitulos_ibfk_1");
+            });
+
+            modelBuilder.Entity<Usuarios>(entity =>
+            {
+                entity.ToTable("usuarios");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.NombreReal)
+                    .IsRequired()
+                    .HasMaxLength(45);
+
+                entity.Property(e => e.NombreUsuario)
+                    .IsRequired()
+                    .HasMaxLength(45);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(45);
+
+                entity.Property(e => e.Rol)
+                    .IsRequired()
+                    .HasMaxLength(45);
             });
 
             OnModelCreatingPartial(modelBuilder);

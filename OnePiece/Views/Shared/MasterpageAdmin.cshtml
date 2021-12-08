@@ -9,8 +9,12 @@
         <tite>World One Piece</tite>
         <nav>
             <a href="~/Admin">Principal</a>
+            @if (User.IsInRole("Administrador")) 
+            {
             <a href="~/Admin/Arcos/IndexArcos">Administrar Arcos</a>
+            }
             <a href="~/Admin/Capitulos/IndexCapitulos">Administrar Capitulos</a>
+            <a href="~/Account/Logout">Cerrar sesión</a>
         </nav>
     </header>
     <main>
@@ -20,6 +24,7 @@
         Mundo One Piece - Proyecto de Programación Web
         Jesus David Flores Hernandez
         Jacob Asael Barrera Mata
+        Erika Yazmin Briones Gordillo 
     </footer>
 </body>
 </html>

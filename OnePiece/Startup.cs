@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnePiece.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace OnePiece
 {
     public class Startup
@@ -18,6 +18,17 @@ namespace OnePiece
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(
+                CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+                {
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                    options.SlidingExpiration = true;
+                    options.LoginPath = "/Account/Login";
+                    options.LogoutPath = "/Account/Logout";
+                    options.LogoutPath = "/Account/AccessDenied";
+                    options.Cookie.Name = "OnePieceSesion";
+                }
+                );
             services.AddDbContext<onepieceContext>(options =>
             {
                 options.UseMySql("server=localhost;user=root;password=Nrx51987;database=onepiece", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
@@ -38,7 +49,9 @@ namespace OnePiece
             }
             app.UseFileServer();
             app.UseRouting();
-            
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

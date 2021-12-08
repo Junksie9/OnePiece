@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<link href="~/css/estilos.css" rel="stylesheet" />*@
+    <title>Mundo One Piece</title>
+</head>
+<body>
+    <header>
+        <tite>World One Piece</tite>
+
+    </header>
+    <main>
+        <form method="post" action="~/Account/Login">
+            <div>
+                <h1>Iniciar sesion</h1>
+                <label>Nombre de usuario:</label>
+                <input type="text" required name="username"/>
+
+                <label>Contraseña</label>
+                <input type="password" required name="password"/>
+
+                <div>
+                    <p class="error">@Html.ValidationSummary()</p>
+                    <input type="submit" value="Entrar"/>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer>
+        Mundo One Piece - Proyecto de Programación Web
+        Jesus David Flores Hernandez
+        Jacob Asael Barrera Mata
+    </footer>
+</body>
+</html>

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OnePiece.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnePiece.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Administrador")]
     public class ArcosController : Controller
     {
         public onepieceContext Context { get; }
@@ -38,6 +40,10 @@ namespace OnePiece.Areas.Admin.Controllers
             else if (string.IsNullOrWhiteSpace(a.Descripcion))
             {
                 ModelState.AddModelError("", "Agregue una Descripcion");
+            }
+            else if (a.NumArco == 0)
+            {
+                ModelState.AddModelError("", "Agregue un numero de arco");
             }
             else if (Context.Arcos.Any(x=>x.NombreArco==a.NombreArco))
             {
