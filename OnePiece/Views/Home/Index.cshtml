@@ -8,8 +8,8 @@
 <h1>Lista de episodios</h1>
 @foreach (var item in Model)
 {
-    <li>
-        <a href="~/Home/InfoCap">
+<li>
+    <a href="~/@item.IdArcoNavigation.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
             @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
             {
                 <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
@@ -20,5 +20,5 @@
             }
             <h1>@item.NombreCapitulo</h1>
         </a>
-    </li>
+</li>
 }

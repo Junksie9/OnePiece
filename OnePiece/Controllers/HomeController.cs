@@ -17,9 +17,11 @@ namespace OnePiece.Controllers
 
         public onepieceContext Context { get; }
 
+
         public IActionResult Index()
-        {
-            var cap = Context.Capitulos.OrderBy(x => x.NumCap);
+        { 
+            
+            var cap = Context.Capitulos.Include(x=>x.IdArcoNavigation).OrderBy(x => x.NumCap);
             return View(cap);
         }
         [Route("/{arco}")]
