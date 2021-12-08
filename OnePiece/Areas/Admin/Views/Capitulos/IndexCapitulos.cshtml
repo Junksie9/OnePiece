@@ -7,7 +7,7 @@
 
 <h1>Administrar Capitulos</h1>
 
-<a href="~/Admin/Capitulos/Agregar">Nuevo Arco</a>
+<a href="~/Admin/Capitulos/Agregar">Nuevo Capitulo</a>
 <section>
     <form method="post" action="~/Admin/Capitulos/IndexCapitulos">
         <select name="idArco" onchange="this.form.submit()" asp-for="Capitulo.Id" asp-items="@(new SelectList(Model.Arcos,"Id","NombreArco"))">
