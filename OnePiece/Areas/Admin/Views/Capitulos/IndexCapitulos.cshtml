@@ -1,5 +1,6 @@
 ﻿@model OnePiece.Areas.Admin.Models.CapitulosViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
 @{
     Layout = "MasterpageAdmin";
 }
@@ -11,10 +12,6 @@
     <form method="post" action="~/Admin/Capitulos/IndexCapitulos">
         <select name="idArco" onchange="this.form.submit()" asp-for="Capitulo.Id" asp-items="@(new SelectList(Model.Arcos,"Id","NombreArco"))">
             <option selected="selected" value="">Seleccione</option>
-            @*@foreach (var a in Model.Arcos)
-        {
-            <option selected="selected" value="@a.Id">@a.NombreArco</option>
-        }*@
         </select>
     </form>
 
@@ -35,7 +32,14 @@
                 }
             </p>
             <div>
-                <img src="~/images/nophoto.jpg" style="height:200px;width:400px;" />
+                @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
+                {
+                    <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
+                }
+                else
+                {
+                    <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
+                }
             </div>
             <div>
                 <a href="~/Admin/Capitulos/Editar/@item.Id">Editar</a>

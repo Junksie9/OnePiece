@@ -14,7 +14,7 @@
             <h1>One Piece - @item.NombreCapitulo</h1>
             @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{Model.Id}.jpg"))
             {
-                <img src="~/img_capitulos/@(Model.Id).jpg" style="height:200px;width:400px;"/>
+                <img src="~/img_capitulos/@(Model.Id).jpg" style="height:200px;width:400px;" />
             }
             else
             {
