@@ -11,7 +11,7 @@ namespace OnePiece.Services
         public List<Arcos> Arcos { get; set; }
         public ArcoServices(onepieceContext context)
         {
-            Arcos = context.Arcos.OrderBy(x => x.NombreArco).ToList();
+            Arcos = context.Arcos.OrderBy(x => x.NumArco).ToList();
         }
     }
 }

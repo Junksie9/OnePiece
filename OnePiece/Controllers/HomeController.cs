@@ -29,7 +29,7 @@ namespace OnePiece.Controllers
         {
             arco = arco.Replace("-", " ");
             var arc = Context.Arcos
-                .Include(x => x.Capitulos)
+                .Include(x => x.Capitulos).OrderBy(x=>x.NumArco)
                 .FirstOrDefault(x => x.NombreArco == arco); //Checar que se acomoden por numero de arco
             if (arc == null)
             {
