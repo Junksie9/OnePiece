@@ -1,16 +1,24 @@
-﻿@*@model IEnumerable<OnePiece.Models.Capitulo>*@
+﻿@model IEnumerable<OnePiece.Models.Capitulos>
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
 @{
     Layout = "Masterpage";
 }
 
 
 <h1>Lista de episodios</h1>
-@*@foreach (var item in Model)
+@foreach (var item in Model)
 {
     <li>
         <a href="~/Home/InfoCap">
-            <img src="~/images/luffy.jpg" style="height:200px;width:400px;" />
+            @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
+            {
+                <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
+            }
+            else
+            {
+                <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
+            }
             <h1>@item.NombreCapitulo</h1>
         </a>
     </li>
-}*@
+}
