@@ -109,15 +109,17 @@ namespace OnePiece.Areas.Admin.Controllers
             return View(arc);
         }
         [HttpPost]
-        public IActionResult Eliminar(Arcos a)
+        public IActionResult Eliminar(Arcos a,Capitulos c)
         {
             var arc = Context.Arcos.FirstOrDefault(x => x.Id == a.Id);
+            //Agregar error de existe un capitulo en el arco.
             if (arc == null)
             {
                 return RedirectToAction("IndexArcos");
             }
             else
             {
+                
                 Context.Remove(arc);
                 Context.SaveChanges();
                 return RedirectToAction("IndexArcos");
