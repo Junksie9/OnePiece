@@ -6,7 +6,7 @@
 
 <h1>Agregar capitulo</h1>
 
-<form method="post" action="~/Admin/Capitulos/Agregar">
+<form method="post" action="~/Admin/Capitulos/Agregar" enctype="multipart/form-data">
     <h1>Nombre del capitulo:</h1>
     <input type="text" required="required" asp-for="Capitulos.NombreCapitulo" />
     <h1>Arco</h1>
@@ -16,16 +16,31 @@
     <h1>Descripcion:</h1>
     <textarea required="required" asp-for="Capitulos.Descripcion"></textarea>
     <h1>Numero de capitulo:</h1>
-        <input type="number" required="required" asp-for="Capitulos.NumCap"/>
+    <input type="number" required="required" asp-for="Capitulos.NumCap" min="0" />
 
-
-        <label>Imagen:</label>
-        <input type="file" id="fileUpload1" accept="image/jpg" />
-        <img id="imagePreview" src="~/images/nophoto.jpg"/>
-
+    <section>
+        <label>Agregar Imagen:</label>
+        <input type="file" id="fileUpload1" name="archivo1" accept="image/.jpg" />
+        <img id="imagePreview" src="~/images/nophoto.jpg" style="max-width: 100%; width: auto; height: auto; " />
+    </section>
     <div>
         <p>@Html.ValidationSummary()</p>
         <input type="submit" value="Agregar" />
-        <input type="button" value="Cancelar" />
+        <a href="~/Admin/Capitulos/IndexCapitulos">
+            <input type="button" value="Cancelar" />
+        </a>
     </div>
 </form>
+<script>
+    function mostrarImagen(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) { document.querySelector('#imagePreview').src = e.target.result }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    document.querySelector("#fileUpload1").addEventListener("change", event => {
+        mostrarImagen(event.target
+        )
+    });
+</script>

@@ -118,10 +118,6 @@ namespace OnePiece.Areas.Admin.Controllers
             }
             else
             {
-                foreach (var c in arc.Capitulos)
-                {
-                    Context.Remove(c);
-                }
                 Context.Remove(arc);
                 Context.SaveChanges();
                 return RedirectToAction("IndexArcos");
