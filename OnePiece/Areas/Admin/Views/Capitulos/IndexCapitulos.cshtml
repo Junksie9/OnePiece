@@ -6,14 +6,15 @@
 
 <h1>Administrar Capitulos</h1>
 
-
+<a href="~/Admin/Capitulos/Agregar">Nuevo Arco</a>
 <section>
     <form method="post" action="~/Admin/Capitulos/IndexCapitulos">
-        <select name="idArco" onchange="this.form.submit()">
-            @foreach (var a in Model.Arcos)
-            {
-                <option selected="selected" value="@a.IdArco">@a.NombreArco</option>
-            }
+        <select name="idArco" onchange="this.form.submit()" asp-for="Capitulo.Id" asp-items="@(new SelectList(Model.Arcos,"Id","NombreArco"))">
+            <option selected="selected" value="">Seleccione</option>
+            @*@foreach (var a in Model.Arcos)
+        {
+            <option selected="selected" value="@a.Id">@a.NombreArco</option>
+        }*@
         </select>
     </form>
 
@@ -37,8 +38,8 @@
                 <img src="~/images/nophoto.jpg" style="height:200px;width:400px;" />
             </div>
             <div>
-                <a href="~/Admin/Capitulos/Editar/@item.IdCapitulo">Editar</a>
-                <a href="~/Admin/Capitulos/Elimar/@item.IdCapitulo">Eliminar</a>
+                <a href="~/Admin/Capitulos/Editar/@item.Id">Editar</a>
+                <a href="~/Admin/Capitulos/Elimar/@item.Id">Eliminar</a>
             </div>
         </div>
     }

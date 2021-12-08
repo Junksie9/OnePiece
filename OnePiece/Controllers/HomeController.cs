@@ -42,8 +42,8 @@ namespace OnePiece.Controllers
             arco = arco.Replace("-", " ");
             capitulo = capitulo.Replace("-", " ");
 
-            var cap = Context.Capitulos.Include(x=>x.IdArcosToCapNavigation).FirstOrDefault(x => x.NombreCapitulo == capitulo);
-            if (cap==null)
+            var cap = Context.Capitulos.Include(x => x.IdArcoNavigation).FirstOrDefault(x => x.NombreCapitulo == capitulo);
+            if (cap == null)
             {
                 return RedirectToAction("Index");
             }

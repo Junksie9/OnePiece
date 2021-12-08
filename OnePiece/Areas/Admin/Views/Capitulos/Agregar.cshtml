@@ -1,0 +1,31 @@
+﻿@model OnePiece.Areas.Admin.Models.CapitulosAggViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "MasterpageAdmin";
+}
+
+<h1>Agregar capitulo</h1>
+
+<form method="post" action="~/Admin/Capitulos/Agregar">
+    <h1>Nombre del capitulo:</h1>
+    <input type="text" required="required" asp-for="Capitulos.NombreCapitulo" />
+    <h1>Arco</h1>
+    <select required="required" asp-for="Capitulos.IdArco" asp-items="@(new SelectList(Model.Arcos,"Id","NombreArco"))">
+        <option selected="selected" value="">Seleccione</option>
+    </select>
+    <h1>Descripcion:</h1>
+    <textarea required="required" asp-for="Capitulos.Descripcion"></textarea>
+    <h1>Numero de capitulo:</h1>
+        <input type="number" required="required" asp-for="Capitulos.NumCap"/>
+
+
+        <label>Imagen:</label>
+        <input type="file" id="fileUpload1" accept="image/jpg" />
+        <img id="imagePreview" src="~/images/nophoto.jpg"/>
+
+    <div>
+        <p>@Html.ValidationSummary()</p>
+        <input type="submit" value="Agregar" />
+        <input type="button" value="Cancelar" />
+    </div>
+</form>

@@ -24,6 +24,7 @@ namespace OnePiece
             }
             );
             services.AddScoped<OnePiece.Services.ArcoServices>();
+           
             services.AddMvc();
         }
 

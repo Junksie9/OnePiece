@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnePiece.Models.Arco>
+﻿@model IEnumerable<OnePiece.Models.Arcos>
 @{
     Layout = "MasterpageAdmin";
 }
@@ -14,8 +14,8 @@
         <div>
             <h1>@item.NombreArco</h1>
             <div>
-                <a href="~/Admin/Arcos/Editar/@item.IdArco">Editar</a>
-                <a href="~/Admin/Arcos/Eliminar/@item.IdArco">Eliminar</a>
+                <a href="~/Admin/Arcos/Editar/@item.Id">Editar</a>
+                <a href="~/Admin/Arcos/Eliminar/@item.Id">Eliminar</a>
             </div>
         </div>
     }

@@ -1,4 +1,4 @@
-﻿@model OnePiece.Models.Capitulo
+﻿@model OnePiece.Models.Capitulos
 @inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
 @{
     Layout = "Masterpage";
@@ -6,9 +6,9 @@
 
 <h1>InfoCap</h1>
 <h1>One piece - @Model.NombreCapitulo</h1>
-@if (System.IO.File.Exists($"{env.WebRootPath}/images/{Model.IdCapitulo}.jpg"))
+@if (System.IO.File.Exists($"{env.WebRootPath}/images/{Model.Id}.jpg"))
 {
-    <img src="~/images/@(Model.IdCapitulo).jpg" style="height:200px;width:400px;" />
+    <img src="~/images/@(Model.Id).jpg" style="height:200px;width:400px;" />
 }
 else
 {

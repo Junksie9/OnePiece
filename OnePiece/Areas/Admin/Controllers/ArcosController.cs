@@ -25,11 +25,11 @@ namespace OnePiece.Areas.Admin.Controllers
 
         public IActionResult Agregar()
         {
-            return View(new Arco());
+            return View(new Arcos());
         }
 
         [HttpPost]
-        public IActionResult Agregar(Arco a)
+        public IActionResult Agregar(Arcos a)
         {
             if (string.IsNullOrWhiteSpace(a.NombreArco))
             {
@@ -54,7 +54,7 @@ namespace OnePiece.Areas.Admin.Controllers
 
         public IActionResult Editar(int id)
         {
-            var arco = Context.Arcos.FirstOrDefault(x => x.IdArco == id);
+            var arco = Context.Arcos.FirstOrDefault(x => x.Id == id);
             if (arco==null)
             {
                 return RedirectToAction("IndexArcos");
@@ -62,9 +62,9 @@ namespace OnePiece.Areas.Admin.Controllers
             return View(arco);
         }
         [HttpPost]
-        public IActionResult Editar(Arco a)
+        public IActionResult Editar(Arcos a)
         {
-            var arc = Context.Arcos.FirstOrDefault(x => x.IdArco == a.IdArco);
+            var arc = Context.Arcos.FirstOrDefault(x => x.Id == a.Id);
             if (arc == null)
             {
                 ModelState.AddModelError("", "El arco ya no existe o se elimino");
@@ -83,7 +83,7 @@ namespace OnePiece.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "El numero de arco no puede ir en 0 ");
                 }
-                else if (Context.Arcos.Any(x => x.NombreArco == a.NombreArco && x.IdArco!=a.IdArco))
+                else if (Context.Arcos.Any(x => x.NombreArco == a.NombreArco && x.Id!=a.Id))
                 {
                     ModelState.AddModelError("", "Ya existe un arco con ese nombre");
                 }
@@ -101,7 +101,7 @@ namespace OnePiece.Areas.Admin.Controllers
 
         public IActionResult Eliminar(int id)
         {
-            var arc = Context.Arcos.FirstOrDefault(x => x.IdArco == id);
+            var arc = Context.Arcos.FirstOrDefault(x => x.Id == id);
             if (arc==null)
             {
                 return RedirectToAction("IndexArcos");
@@ -109,9 +109,9 @@ namespace OnePiece.Areas.Admin.Controllers
             return View(arc);
         }
         [HttpPost]
-        public IActionResult Eliminar(Arco a)
+        public IActionResult Eliminar(Arcos a)
         {
-            var arc = Context.Arcos.FirstOrDefault(x => x.IdArco == a.IdArco);
+            var arc = Context.Arcos.FirstOrDefault(x => x.Id == a.Id);
             if (arc == null)
             {
                 return RedirectToAction("IndexArcos");

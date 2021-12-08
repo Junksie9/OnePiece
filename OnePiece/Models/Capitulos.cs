@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace OnePiece.Models
 {
-    public partial class Capitulo
+    public partial class Capitulos
     {
-        public int IdCapitulo { get; set; }
+        public int Id { get; set; }
+        public int IdArco { get; set; }
         public string NombreCapitulo { get; set; }
         public string Descripcion { get; set; }
-        public int IdArcosToCap { get; set; }
         public int NumCap { get; set; }
 
-        public virtual Arco IdArcosToCapNavigation { get; set; }
+        public virtual Arcos IdArcoNavigation { get; set; }
     }
 }

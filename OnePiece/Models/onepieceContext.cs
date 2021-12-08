@@ -17,14 +17,15 @@ namespace OnePiece.Models
         {
         }
 
-        public virtual DbSet<Arco> Arcos { get; set; }
-        public virtual DbSet<Capitulo> Capitulos { get; set; }
+        public virtual DbSet<Arcos> Arcos { get; set; }
+        public virtual DbSet<Capitulos> Capitulos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+               
             }
         }
 
@@ -32,48 +33,42 @@ namespace OnePiece.Models
         {
             modelBuilder.HasCharSet("utf8mb4");
 
-            modelBuilder.Entity<Arco>(entity =>
+            modelBuilder.Entity<Arcos>(entity =>
             {
-                entity.HasKey(e => e.IdArco)
-                    .HasName("PRIMARY");
-
                 entity.ToTable("arcos");
 
-                entity.Property(e => e.IdArco).HasColumnName("idArco");
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnType("text");
+                    .HasMaxLength(600);
 
                 entity.Property(e => e.NombreArco)
                     .IsRequired()
-                    .HasMaxLength(64);
+                    .HasMaxLength(600);
             });
 
-            modelBuilder.Entity<Capitulo>(entity =>
+            modelBuilder.Entity<Capitulos>(entity =>
             {
-                entity.HasKey(e => e.IdCapitulo)
-                    .HasName("PRIMARY");
-
                 entity.ToTable("capitulos");
 
-                entity.HasIndex(e => e.IdArcosToCap, "idArcosToCap");
+                entity.HasIndex(e => e.IdArco, "idArco");
 
-                entity.Property(e => e.IdCapitulo).HasColumnName("idCapitulo");
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnType("text");
+                    .HasMaxLength(600);
 
-                entity.Property(e => e.IdArcosToCap).HasColumnName("idArcosToCap");
+                entity.Property(e => e.IdArco).HasColumnName("idArco");
 
                 entity.Property(e => e.NombreCapitulo)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasMaxLength(600);
 
-                entity.HasOne(d => d.IdArcosToCapNavigation)
+                entity.HasOne(d => d.IdArcoNavigation)
                     .WithMany(p => p.Capitulos)
-                    .HasForeignKey(d => d.IdArcosToCap)
+                    .HasForeignKey(d => d.IdArco)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("capitulos_ibfk_1");
             });

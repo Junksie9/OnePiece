@@ -1,11 +1,11 @@
-﻿@model OnePiece.Models.Arco
+﻿@model OnePiece.Models.Arcos
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "MasterpageAdmin";
 }
 
 <form method="post" action="~/Admin/Arcos/Eliminar">
-    <input type="hidden" asp-for="IdArco" />
+    <input type="hidden" asp-for="Id" />
     <h1>Eliminar arco</h1>
     <p>Seguro de eliminar el arco "<span>@Model.NombreArco</span>"?</p>
 
