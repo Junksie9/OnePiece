@@ -1,17 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    @*<link href="~/css/estilos.css" rel="stylesheet" />*@
+    <link href="~/css/estilos1.css" rel="stylesheet" />
     <title>Mundo One Piece</title>
 </head>
 <body>
     <header>
-        <tite>World One Piece</tite>
+        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffc00.deviantart.net%2Ffs71%2Ff%2F2010%2F090%2F8%2F7%2FOne_Piece_Banner_by_solid002.png&f=1&nofb=1" />
         <nav>
             <a href="~/Admin">Principal</a>
-            @if (User.IsInRole("Administrador")) 
+            @if (User.IsInRole("Administrador"))
             {
-            <a href="~/Admin/Arcos/IndexArcos">Administrar Arcos</a>
+                <a href="~/Admin/Arcos/IndexArcos">Administrar Arcos</a>
             }
             <a href="~/Admin/Capitulos/IndexCapitulos">Administrar Capitulos</a>
             <a href="~/Account/Logout">Cerrar sesión</a>
@@ -22,9 +22,9 @@
     </main>
     <footer>
         Mundo One Piece - Proyecto de Programación Web
-        Jesus David Flores Hernandez
-        Jacob Asael Barrera Mata
-        Erika Yazmin Briones Gordillo 
+        Jesus David Flores
+        Jacob Asael Barrera
+        Erika Yazmin Briones
     </footer>
 </body>
 </html>

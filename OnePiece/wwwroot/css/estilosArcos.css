@@ -1,0 +1,30 @@
+﻿body {
+}
+
+main{
+    height:600px;
+}
+h1{
+    text-align:center;
+}
+div {
+    float: left;
+    text-align: center;
+    padding: 10px;
+    background: #2E4C6D;
+    margin-top: 25px;
+    margin-left: 4px;
+    border-radius: 87px;
+    flex-wrap:wrap;
+}
+
+div a{
+    margin:5px;
+}
+
+section a{
+
+}
+
+
+

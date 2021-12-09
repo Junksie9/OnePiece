@@ -1,27 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    @*<link href="~/css/estilos.css" rel="stylesheet" />*@
+    <link href="~/css/estiloIndexa.css" rel="stylesheet" />
     <title>Mundo One Piece</title>
 </head>
+
 <body>
     <header>
-        <tite>World One Piece</tite>
-
+        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffc00.deviantart.net%2Ffs71%2Ff%2F2010%2F090%2F8%2F7%2FOne_Piece_Banner_by_solid002.png&f=1&nofb=1" />
     </header>
     <main>
         <form method="post" action="~/Account/Login">
             <div>
                 <h1>Iniciar sesion</h1>
                 <label>Nombre de usuario:</label>
-                <input type="text" required name="username"/>
+                <input type="text" required name="username" />
 
                 <label>Contraseña</label>
-                <input type="password" required name="password"/>
+                <input type="password" required name="password" />
 
                 <div>
                     <p class="error">@Html.ValidationSummary()</p>
-                    <input type="submit" value="Entrar"/>
+                    <input type="submit" value="Entrar" />
                 </div>
             </div>
         </form>

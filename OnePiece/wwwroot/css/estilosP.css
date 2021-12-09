@@ -1,0 +1,20 @@
+﻿body {
+}
+main{
+    width:contain;
+}
+li{
+    margin:20px;
+    list-style:none;
+}
+
+
+li h1{
+    margin-right:20px;
+    color:white;
+}
+h1{
+    margin-left:20px;
+    font-size:20px;
+    color:black;
+}

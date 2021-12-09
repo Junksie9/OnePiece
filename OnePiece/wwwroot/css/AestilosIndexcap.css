@@ -1,0 +1,25 @@
+﻿h1{
+    font-size:20px;
+}
+
+main{
+    height:2000px;
+    text-align:center;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+div h1{
+    font-size:20px;
+}
+
+div{
+    margin-bottom:10px;
+}
+div p {
+    color: #F3950D;
+}
+

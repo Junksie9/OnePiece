@@ -4,6 +4,10 @@
     Layout = "MasterpageAdmin";
 }
 
+<head>
+    <link href="~/css/AestiloEliminar.css" rel="stylesheet" />
+</head>
+
 <form method="post" action="~/Admin/Arcos/Eliminar">
     <input type="hidden" asp-for="Id" />
     <h1>Eliminar arco</h1>
@@ -12,7 +16,7 @@
     <div>
         <p id="error">@Html.ValidationSummary()</p>
         <input type="submit" value="Si" />
-        <a href="~/Admin/Arcos/Index">
+        <a href="~/Admin/Arcos/IndexArcos">
             <input type="button" value="cancelar" />
         </a>
 

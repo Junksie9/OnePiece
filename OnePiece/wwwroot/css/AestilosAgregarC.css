@@ -1,0 +1,54 @@
+﻿body {
+}
+
+main {
+    width: contain;
+    text-align: center;
+    height: 690px;
+}
+
+li {
+    margin: 20px;
+    list-style: none;
+}
+
+    li h1 {
+        margin-right: 20px;
+        color: white;
+    }
+
+h1 {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+input {
+    width: 320px;
+}
+
+div input {
+    background: #ECB365;
+    border: none;
+    margin: 10px;
+    width: 120px;
+}
+
+input {
+    height: 20px;
+    margin:4px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+textarea {
+    height:200px;
+    width:400px;
+    resize: none;
+}
+
+
+footer {
+    margin-left: 5px;
+}

@@ -4,18 +4,26 @@
     Layout = "Masterpage";
 }
 
-<h1>InfoCap</h1>
-<h1>One piece - @Model.NombreCapitulo</h1>
+<head>
+    <link href="~/css/estilos2.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+</head>
+
+
+<h2>One piece - @Model.NombreCapitulo</h2>
 @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{Model.Id}.jpg"))
 {
-    <img src="~/img_capitulos/@(Model.Id).jpg" style="height:200px;width:400px;" />
+    <img src="~/img_capitulos/@(Model.Id).jpg" style="height:380px;width:875px;" />
 }
 else
 {
-    <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
+    <img src="~/img_capitulos/nophoto.jpg" style="height:380px;width:875px;" />
 }
-<p>@Model.Descripcion</p>
+<details>
+    <summary>Descripción del Capítulo</summary>
+    <p>@Model.Descripcion</p>
+</details>
 
 <a href="~/Index">
-    <input type="button" value="Regresar" />
+    <input type="button" value="Regresar" style="border:none; background:#ECB365; color:white;" />
 </a>

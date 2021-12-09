@@ -1,0 +1,20 @@
+﻿body {
+}
+
+main{
+    height:200px;
+    text-align:center;
+}
+
+
+h1{
+    font-size:30px;
+}
+
+input {
+    width: 120px;
+    background: #ECB365;
+    border: none;
+    margin: 10px;
+    color:white;
+}

@@ -1,0 +1,50 @@
+﻿body {
+}
+
+main {
+    width: contain;
+    text-align:center;
+    height:310px;
+
+}
+
+li {
+    margin: 20px;
+    list-style: none;
+}
+
+    li h1 {
+        margin-right: 20px;
+        color: white;
+    }
+
+h1 {
+    margin-left: 20px;
+    font-size: 20px;
+
+}
+
+input{
+    width:320px;
+}
+
+div input {
+    background: #ECB365;
+    border: none;
+    margin: 10px;
+    width: 120px;
+
+}
+
+input {
+    height:20px;
+}
+
+form{
+ margin-top:10px;
+}
+
+footer{
+    margin-left:5px;
+}
+

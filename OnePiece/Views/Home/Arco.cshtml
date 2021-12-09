@@ -3,22 +3,24 @@
 @{
     Layout = "Masterpage";
 }
-
+<head>
+    <link href="~/css/estiloArcoss.css" rel="stylesheet" />
+</head>
 <h1>@Model.NombreArco</h1>
 
 @foreach (var item in Model.Capitulos)
 {
 
-    <li>
+    <li style="">
         <a href="~/@Model.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
             <h1>One Piece - @item.NombreCapitulo</h1>
             @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
             {
-                <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
+                <img src="~/img_capitulos/@(item.Id).jpg" style="height:150px;width:320px;" />
             }
             else
             {
-                <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
+                <img src="~/img_capitulos/nophoto.jpg" style="height:150px;width:320px;" />
             }
             <p>@item.Descripcion</p>
         </a>
