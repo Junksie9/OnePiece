@@ -2,10 +2,10 @@
     font-size:20px;
 }
 
-main{
-    height:2000px;
-    text-align:center;
-
+main {
+    height: max-content;
+    
+    text-align: center;
 }
 
 h1 {

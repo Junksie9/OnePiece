@@ -10,7 +10,7 @@
 </head>
 
 
-<h2>One piece - @Model.NombreCapitulo</h2>
+<h2>One piece Cap:@Model.NumCap - @Model.NombreCapitulo</h2>
 @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{Model.Id}.jpg"))
 {
     <img src="~/img_capitulos/@(Model.Id).jpg" style="height:380px;width:875px;" />

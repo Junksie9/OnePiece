@@ -4,7 +4,7 @@
 main {
     width: contain;
     text-align: center;
-    height: 690px;
+    height: contain;
 }
 
 li {

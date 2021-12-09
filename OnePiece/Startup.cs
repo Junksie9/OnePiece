@@ -21,7 +21,7 @@ namespace OnePiece
             services.AddAuthentication(
                 CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
                 {
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(25);
                     options.SlidingExpiration = true;
                     options.LoginPath = "/Account/Login";
                     options.LogoutPath = "/Account/Logout";

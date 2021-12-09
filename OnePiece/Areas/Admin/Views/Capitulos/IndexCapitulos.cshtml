@@ -22,13 +22,13 @@
     @foreach (var item in Model.Capitulos)
     {
         <div>
-            <h1>@item.NombreCapitulo</h1>
-            <p>@item.NumCap</p>
+            <h1>Cap:@item.NumCap - @item.NombreCapitulo</h1>
+            
             <p title="@(item.Descripcion)">
                 Descripcion:
-                @if (item.Descripcion.Length > 50)
+                @if (item.Descripcion.Length > 126)
                 {
-                    @item.Descripcion.Substring(0, 50)
+                    @item.Descripcion.Substring(0, 126)
                 }
                 else
                 {

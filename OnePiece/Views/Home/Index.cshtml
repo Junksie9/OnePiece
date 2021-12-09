@@ -11,17 +11,19 @@
 <h1>Lista de episodios</h1>
 @foreach (var item in Model)
 {
-<li>
-    <a href="~/@item.IdArcoNavigation.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
-            @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
-            {
-                <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
-            }
-            else
-            {
-                <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
-            }
+    <li>
+        <a href="~/@item.IdArcoNavigation.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
             <h1>@item.NombreCapitulo</h1>
+            <div>
+                @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
+                {
+                    <img src="~/img_capitulos/@(item.Id).jpg" style="height:200px;width:400px;" />
+                }
+                else
+                {
+                    <img src="~/img_capitulos/nophoto.jpg" style="height:200px;width:400px;" />
+                }
+            </div>
         </a>
-</li>
+    </li>
 }
