@@ -13,7 +13,7 @@
 {
     <li>
         <a href="~/@item.IdArcoNavigation.NombreArco.Replace(" ","-")/@item.NombreCapitulo.Replace(" ","-")">
-            <h1>@item.NombreCapitulo</h1>
+            <h1>One Piece Cap @item.NumCap - @item.NombreCapitulo</h1>
             <div>
                 @if (System.IO.File.Exists($"{env.WebRootPath}/img_capitulos/{item.Id}.jpg"))
                 {
