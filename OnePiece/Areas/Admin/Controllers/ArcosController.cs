@@ -115,7 +115,7 @@ namespace OnePiece.Areas.Admin.Controllers
             return View(arc);
         }
         [HttpPost]
-        public IActionResult Eliminar(Arcos a,)
+        public IActionResult Eliminar(Arcos a)
         {
             var arc = Context.Arcos.FirstOrDefault(x => x.Id == a.Id);
             //Agregar error de existe un capitulo en el arco.
